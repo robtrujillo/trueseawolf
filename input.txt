@@ -1,13 +1,59 @@
-{
-  number1 = 25;
-  number2 = 10;
-  while(number1 <> number2) {
-    if (number1 > number2) {
-      number1 = number1 - number2;
-    } else {
-      number2 = number2 - number1;
+fibonacciTable = [ 0, 0, 0, 0, 0 ];
+fibonacci(index) {
+    if (index == 0) {
+        return 0;
     }
-  }
-  print("The greatest common divider is: ");
-  print(number1);
+    if (index == 1) {
+        fibonacciTable[1]=1;
+        return fibonacciTable[1];
+    }
+    if(fibonacciTable[index] <> 0) {
+        return fibonacciTable[index];
+    } else {
+        fibonacciTable[index] = fibonacci(index - 1) + fibonacci(index - 2);
+        return fibonacciTable[index];
+    }
+}
+{
+    print(fibonacci(4));
+}
+
+m1(n1){
+  return n1+1;
+}
+{
+  n = 1;
+  print(m1(n+1));
+}
+
+m2(n2){
+  print(n2);
+}
+{
+  n = 1;
+  m2(n+1+1);
+}
+
+fact(n){
+    if(n<1) {
+        return 1;
+    } else {
+        return n * fact(n-1);
+    }
+}
+{
+    print(fact(4));
+}
+
+gcd(a,b){
+    t = b;
+    b = a % b;
+    if(b == 0) {
+        return t;
+    } else {
+        return gcd(t,b);
+    }
+}
+{
+    print(gcd(995,764));
 }
